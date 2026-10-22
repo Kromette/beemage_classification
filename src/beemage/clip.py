@@ -5,9 +5,11 @@ from PIL import Image
 import torch
 from transformers import CLIPModel, CLIPProcessor
 
+from . import PROJECT_ROOT
+
 
 def main():
-    hornet_dataset_path = "../data/hornet3000+/"
+    hornet_dataset_path = PROJECT_ROOT / "data/hornet3000+/"
 
     # 1. Load the model and processor
     model_id = "openai/clip-vit-base-patch32"
@@ -15,16 +17,16 @@ def main():
     processor = CLIPProcessor.from_pretrained(model_id)
 
     # 2. Prepare image and text labels
-    train_images_folder = os.path.join(hornet_dataset_path, "data3000/train/images")
-    all_species = os.listdir(train_images_folder)
+    train_images_folder = hornet_dataset_path / "data3000/train/images"
+    all_species = [folderpath.name for folderpath in train_images_folder.iterdir()]
     sample_images = {}
     for species in all_species:
-        species_images_path = os.path.join(train_images_folder, species)
+        species_images_path = train_images_folder / species
         sample_images[species] = []
-        filenames = list(os.listdir(species_images_path))
+        filenames = list(species_images_path.iterdir())
         random.shuffle(filenames)
         for filename in filenames[:15]:
-            sample_images[species].append(os.path.join(species_images_path, filename))
+            sample_images[species].append(species_images_path / filename)
 
     image_path = sample_images["Vespa_velutina"][0]
     print(f"Image path: {image_path}")

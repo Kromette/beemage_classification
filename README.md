@@ -162,9 +162,14 @@ Install the main Python dependencies:
 uv sync
 ```
 
-Download the Hornet3000+ dataset from Kaggle and obtain the pretrained YOLO checkpoints from the associated GitHub repository.
+Download the Hornet3000+ dataset from Kaggle into `data` folder and obtain the pretrained YOLO checkpoints from the associated GitHub repository into `models` folder.
 
 Check the repository documentation for the exact checkpoint filenames, model versions, and usage instructions. Verify that each checkpoint loads correctly with the installed Ultralytics version and that its class names match the expected species.
+
+Run CLIP model with:
+```bash
+uv run python -m beemage.clip
+```
 
 The CLIP model will be downloaded automatically by Hugging Face Transformers when first loaded, unless it is already available in the local cache.
 
