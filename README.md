@@ -154,7 +154,7 @@ The three-class benchmark is an initial milestone, not the final classification 
 
 ## 6. Setup
 
-First, install the [uv package manager]([https://docs.astral.sh/uv/getting-started/installation/]
+First, install the [uv package manager](https://docs.astral.sh/uv/getting-started/installation/)
 
 Install the main Python dependencies:
 
