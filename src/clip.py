@@ -7,7 +7,7 @@ from transformers import CLIPModel, CLIPProcessor
 
 
 def main():
-    hornet_dataset_path = "data/hornet3000+/"
+    hornet_dataset_path = "../data/hornet3000+/"
 
     # 1. Load the model and processor
     model_id = "openai/clip-vit-base-patch32"
