@@ -10,8 +10,10 @@ requires-python = ">=3.12,<3.15"
 dependencies = [
     "matplotlib>=3.11.2",
     "pillow>=13.0.0",
+    "scikit-learn>=1.9.1",
     "torch>=2.14.1",
     "transformers>=5.20.2",
+    "ultralytics>=8.4.191",
 ]
 
 [project.scripts]
