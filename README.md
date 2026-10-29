@@ -57,10 +57,12 @@ Download model weights from the repository root:
 mkdir -p models
 
 # YOLOv8s
-curl -L \ https://raw.githubusercontent.com/vespCV/hornet3000/refs/heads/main/yolov8sModel/weights/best.pt --output models/yolov8s.pt
+curl -L \
+  https://raw.githubusercontent.com/vespCV/hornet3000/refs/heads/main/yolov8sModel/weights/best.pt --output models/yolov8s.pt
 
 # YOLOv10n
-curl -L \ https://raw.githubusercontent.com/vespCV/hornet3000/refs/heads/main/yolov10nModel/weights/best.pt --output models/yolov10n.pt
+curl -L \
+  https://raw.githubusercontent.com/vespCV/hornet3000/refs/heads/main/yolov10nModel/weights/best.pt --output models/yolov10n.pt
 
 # YOLOv11s
 curl -L \
