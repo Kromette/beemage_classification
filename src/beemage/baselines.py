@@ -27,6 +27,7 @@ VAL_IMAGES_DIR = DATASET_DIR / "data3000" / "val" / "images"
 YOLO_MODELS = {
     "yolov8s": PROJECT_ROOT / "models" / "yolov8s.pt",
     "yolov10n": PROJECT_ROOT / "models" / "yolov10n.pt",
+    "yolov11s": PROJECT_ROOT / "models" / "yolov11s.pt"
 }
 
 CLIP_MODEL_ID = "openai/clip-vit-base-patch32"
@@ -54,7 +55,7 @@ CLIP_PROMPTS = [
 
 # Additional names that the pretrained YOLO models use.
 SPECIES_ALIASES = {
-    # YOLOv8s
+    # YOLOv8s & YOLOv11s
     "vvel": "Vespa_velutina",
     "vcra": "Vespa_crabro",
     "vespsp": "Vespula_sp",
@@ -174,7 +175,7 @@ def predict_clip(image: Image.Image, model, processor, device):
 # ---------------------------------------------------------------------------
 
 def load_yolo_models():
-    """Load both pretrained YOLO checkpoints and validate their classes."""
+    """Load pretrained YOLO checkpoints and validate their classes."""
     models = {}
 
     for model_name, checkpoint in YOLO_MODELS.items():
@@ -305,8 +306,9 @@ def main():
     y_true = []
     predictions = {
         "clip": [],
-        "yolov8s": [],
-        "yolov10n": [],
+        **{
+            key: [] for key in YOLO_MODELS
+        }
     }
 
     rows = []
